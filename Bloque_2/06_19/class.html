@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 19/06</title>
+</head>
+<body>
+    
+    <script>
+        // var array = ["Leo", "Juli", 89, "Pepe", 77, "Mica", 90, 12, "Jorge", 43];
+
+        // var sum = 0;
+        // var names = [];
+
+        // for (let i=0; i<array.length; i++) {
+
+        //     if (typeof(array[i]) == "string") {
+        //         names.push(array[i]);
+        //     }
+        //     else {
+        //         sum += array[i];
+        //         console.log(array[i]);
+        //     }
+        // }
+
+        // console.log(names);
+        // console.log(sum);
+        
+        var exit = false;
+        var par = [];
+        var impar = [];
+        var nonumeric = [];
+
+        do {
+            var userInput = prompt("ingrese un número: ");
+            // console.log(typeof(userInput))
+            // console.log(userInput)
+            
+            if(userInput === "0"){
+                console.log("llegamos")
+                exit = true;
+            }  
+            else{
+                userInput = parseInt(userInput);
+                if(typeof(userInput)!=NaN){
+
+                    if(userInput %2 == 0){
+                        par.push(userInput);
+                    }
+                    if(userInput %2 != 0 && typeof(userInput) != NaN){
+                        impar.push(userInput);
+                    }
+                }
+
+                else{
+                    nonumeric.push(userInput);
+                }
+            }
+            
+        } while (exit==false);
+
+        console.log("par: " + par);
+        console.log("impar: " + impar);
+        console.log("no numerico: " + nonumeric);
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+* {
+    /* border: 1px solid black; */
+    list-style: none;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    width: 100%;
+}
+
+header img {
+    height: 50px;
+    position: relative;
+    /* top: 5px; */
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: last baseline;
+    height: 75px;
+    border: 3px solid black;
+}
+
+nav {
+    width: 100%;
+}
+
+nav ul {
+    /* float: right; */
+}
+
+nav li {
+    display: inline-block;
+}
+
+aside {
+    margin: 45px 0;
+    width: 24%;
+    position: absolute;
+    left: 0;
+    border: 3px solid black;
+}
+
+section {
+    border: 3px solid black;
+}
+
+main {
+    width: 74%;
+    float: right;
+}
+
+article {
+    display: flex;
+    padding: 10px 0 10px 0;
+    margin: 25px 0;   
+}
+
+p {
+    margin: auto;
+}

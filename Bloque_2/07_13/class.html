@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <div id="img_container">
+        <input type="text" id="userInput">
+        <button id="search">Buscar</button>
+    </div>
+
+    <script>
+
+        //  >>>>>>>>>>>>>>>>    SIMPLE PROMISE EXAMPLE  >>>>>>>>>>>>>>>>>>>>>>
+        //
+        //
+        // let prom = new Promise((resolve, reject) => {
+        //     setTimeout(function( ){
+        //         resolve("Promesa resuelta!")
+        //     }, 250);
+
+        //     setTimeout(function(){
+        //         reject("Promesa rechazada!")
+        //     }, 249);
+        // });
+
+        // prom.then((successMessage) => {
+        //     console.log('Respuesta de promesa:' + successMessage);    
+        // }).catch((errorMessage) => {
+        //     console.log('Respuesta de promesa:' + errorMessage);                
+        // });
+        //  <<<<<<<<<<<<<<<<<<<<<<< 
+
+
+        //  >>>>>>>>>>>>    EVEN/ODD NUMBERS EXAMPLE    >>>>>>>>>>>>>>>>>>>>>>
+        
+        let promRandom = new Promise((resolve, reject) => {
+            let number = Math.floor(Math.random() * Math.floor(10));
+            setTimeout(function () {
+                if (number % 2 == 0) {
+                    resolve(number);
+                }
+                else {
+                    reject(number);
+                }
+            }, 3000);
+        });
+
+        promRandom.then((msg) => {
+            console.log("Promesa exitosa. Número: " + msg);
+        }).catch((msg) => {
+            console.log("Promesa fallida. Número: " + msg);
+        });
+
+        //  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+        //  >>>>>>>>>>>>    TRUE/FALSE EXAMPLE    >>>>>>>>>>>>>>>>>>>>>>
+
+
+        // let prom2 = new Promise((resolve, reject) => {
+        //     console.log("Pending...");
+        //     setTimeout(function(){
+        //         if(!true) {
+        //             resolve("Success!");
+        //         }
+        //         else {
+        //             reject("Fail!");
+        //         }
+        //     }, 3500);
+        // });
+
+        // prom2.then((message) => {
+        //     console.log(message);
+        // }).catch((message) => {
+        //     console.log(message);   
+        // });
+
+        //  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        
+        //  >>>>>>>>>>>>    USE GITHUB API AND CHANGE PAGE WITH RESPONSE DATA   >>>>>>>>>>>>>>>>>>>>>>
+
+        // let img = document.getElementById('img_container');
+
+        // function getImg(url) {
+        //     fetch(url)
+        //     .then(response => response.json())
+        //     .then(x => {
+        //         let dogImg = document.createElement('img');
+        //         dogImg.setAttribute('src', x.message);
+        //         dogImg.style.width = '100%';
+        //         img.appendChild(dogImg);
+        //     });
+        // }
+
+        // getImg('https://dog.ceo/api/breeds/image/random');
+
+        // let url = 'https://api.github.com/users/';
+
+        // let input = document.getElementById('userInput');
+        // let btn = document.getElementById('search');
+
+        // btn.addEventListener('click', ()=> {
+        //     getUser(input.value);
+        // });
+
+        // function getUser(userName) {
+        //     fetch(url + userName)
+        //     .then(response => response.json())
+        //     .then(json => {
+
+        //         let paragraph = document.createElement('p');
+        //         paragraph.textContent = json.followers;
+        //         img.appendChild(paragraph);
+        //         console.log(json.login);
+        //     });
+        // }
+
+        // function getFollowers(url) {
+        //     fetch(url)
+        //     .then(response => response.json())
+        //     .then(json => {
+        //         console.log(json);
+        //     });
+        // }
+
+        //getUser('andrew');
+
+        //  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+    </script>
+</body>
+
+</html>

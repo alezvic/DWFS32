@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="hero">
+        <h1 class="roboto">COFFEE SHOP</h1>
+    </section>
+    <section id="shop">
+        <div class="card">
+            <img src="https://d26lpennugtm8s.cloudfront.net/stores/959/276/products/ee6d8f08-b8bc-47f4-8674-500d61fb8b421-d548388d155b58d1b615854458852515-480-0.jpg" alt="">
+            <p>Cafe Colombia La Marianela</p>
+            <p>Precio: $600</p>
+            <button class="btn">AGREGAR AL CARRITO</button>
+
+        </div>
+        <div class="card">
+            <img src="https://d26lpennugtm8s.cloudfront.net/stores/959/276/products/4f1a5028-b880-453e-9f08-75e2413043911-38af5cd9929233f2c515854458393067-480-0.jpg" alt="">
+            <p>Cafe Colombia La Catalina</p>
+            <p>Precio: $600</p>
+            <button class="btn">AGREGAR AL CARRITO</button>            
+        </div>
+        <div class="card">
+            <img src="https://d26lpennugtm8s.cloudfront.net/stores/959/276/products/8b358665-9dec-443b-b14c-489b1be532421-13a5a06e00979e308c15854456147399-480-0.jpg" alt="">
+            <p>Cafe Brasil Onix</p>
+            <p>Precio: $650</p>
+            <button class="btn">AGREGAR AL CARRITO</button>            
+        </div>
+    </section>
+    <section id="cart">
+        <h1 class="roboto">CARRITO</h1>
+        <form action="">
+            <label for="number">SUMA TOTAL:</label>
+        <input type="number" name="number" id="number" value="0">
+        </form>
+    </section>
+
+    <script>
+        var carrito=[];
+        var productos=[];
+        var suma=0;
+        function sumar(){
+            for(let i=0;carrito.length;i++){
+                console.log(carrito[i].precio)
+                suma+=carrito[i].precio;
+            }
+            console.log(suma);
+        }
+
+        let agregar = (producto) => {
+            carrito.push(producto);
+            alert('Agregado ' + producto.nombre);
+        }
+
+        let sacar = (producto) => {
+            for(let i=0; i<carrito.length; i++) {
+                if(producto.nombre == carrito[i].nombre) {
+                    carrito.slice(i,1);
+                    console.log('sacado');
+                    
+                }
+            }
+            console.log(carrito);
+        }
+
+        function editarCarrito(producto,callback) {
+            callback(producto);
+            //console.log("Agregado " + producto.nombre);
+            // var mensaje = document.createElement("h2");
+            // mensaje.innerText = 'Agregado ' + producto.nombre;
+            // document.getElementById('hero').append(mensaje);
+        }
+        
+
+        var marianela= {
+        nombre:"Cafe Colombia La Marianela",
+        precio:600
+        };
+        productos.push(marianela);
+        
+        var catalina={
+        nombre:"Cafe Colombia La Catalina",
+        precio:600
+        };
+        productos.push(catalina);
+
+        var onix={
+        nombre:"Cafe Brasil Onix",
+        precio:650
+        };
+        productos.push(onix);
+
+        console.log(productos);
+
+        var btn=document.getElementsByClassName("btn");
+        console.log(btn);
+        for(let i= 0;i<btn.length;i++){
+            btn[i].addEventListener("click",function(){
+                //carrito.push(productos[i]);
+                editarCarrito(productos[i],agregar);
+                localStorage.setItem("productos",JSON.stringify(carrito));
+                var div = document.createElement("div");
+                div.style.display="block";
+                div.innerText=carrito[i].nombre;
+                var cart=document.getElementById("cart");
+                div.addEventListener('click',()=>editarCarrito(productos[i],sacar))
+                cart.appendChild(div)
+                var number= document.getElementById("number");
+                var total = parseInt(number.value);
+                number.value=carrito[i].precio+total;
+                
+            }) 
+        }
+
+    </script>
+    
+</body>
+</html>

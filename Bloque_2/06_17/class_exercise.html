@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- HACER UN LOGIN Y SARASA -->
+    <script>
+
+        // const user = 'acamica';
+        // const pass = "acamica123";
+
+        // function login(usuario, password) {
+        //     if (usuario == user && password == pass) {
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
+        
+        // do {
+
+        //     var usuario = prompt("Ingrese su nombre de usuario:");
+        //     var password = prompt("Ingrese su password:");
+            
+        //     var i = 0;
+        //     if (login(usuario,password)) {
+        //         alert ("Bienvenido, " + usuario + "!!");
+        //     }
+        //     else {
+        //         alert("Credenciales inválidas!!");
+        //         i++;
+        //     }
+        // } while (!login(usuario,password) && i<3)
+        
+        
+        const max = 5
+        var partialSum = 0;
+        for (let i=0; i<max; i++) {
+            var num = parseInt(prompt("Ingrese valor " + (parseInt(i)+1) + ": "));
+            partialSum += num;
+        }
+
+        function avg(sum, steps) {
+            console.log(sum);
+            console.log(steps);
+            
+            
+            console.log(sum/steps);
+            return(sum/steps);
+        }
+
+        alert(avg(partialSum, max));
+
+        //alert(partialSum);
+
+    </script>
+</body>
+</html>

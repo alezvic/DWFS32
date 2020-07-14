@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listeners</title>
+</head>
+
+<body>
+    <!-- <form action=""> -->
+
+    <label for="input_name">Ingresá tu nombre</label>
+    <input type="text" name="name" id="input_name">
+    <button id="btn_ok">Ok</button>
+    <!-- </form> -->
+
+    <script>
+
+        var input = document.getElementById('input_name');
+        var button = document.getElementById('btn_ok');
+
+        function on_click(text) {
+            if (text) {
+                alert('Hola ' + text)
+            }
+            else {
+                input.style.backgroundColor = 'red';
+                alert('El input está vacío');
+            }
+        }
+
+        function on_focus() {
+            input.style.backgroundColor = ' white';
+        }
+
+        button.addEventListener('click', () => on_click(input.value));
+        input.addEventListener('focus', () => on_focus());
+
+    </script>
+</body>
+
+</html>

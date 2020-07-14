@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primer Página</title>
+    <style>
+        body {background-color: darkgray; font-family: Arial, Helvetica, sans-serif; text-align: center;}
+        #name {color: red;}
+        #birthdate {margin-left: 25px;}
+        #description {background-color: black; color: white;}
+        img {max-width: 400px;}
+    </style>
+</head>
+<body>
+    <h1 id="name">Alejandro</h1>
+    <img id="portrait" src="me.png" alt="Ale">
+    <h6 id="birthdate">25 de Octubre, 1987</h6>
+    <p id="description">Fanático de la ciencia-ficción y la tecnología. Early adopter del subdesarrollo.</p>
+</body>
+<script>
+    myName = document.getElementById('name');
+    myName.addEventListener('click', function() { alert("Bienvenido!"); });
+
+    description = document.getElementById('description');
+    description.addEventListener('mouseenter', function() {
+        description.style.color = 'black';
+        description.style.backgroundColor = 'white';
+    });
+    description.addEventListener('mouseout', function() {
+        description.style.color = 'white';
+        description.style.backgroundColor = 'black';
+    });
+</script>
+</html>

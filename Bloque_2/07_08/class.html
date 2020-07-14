@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // function sayHi(name) {
+        //     alert('Hola ' + name);
+        // }
+
+        // function getName(callback) {
+        //     let name = prompt('Ingresa tu nombre');
+        //     callback(name);
+        // }
+
+        // getName(sayHi)
+
+//        sayHi('Ale');
+
+
+            // CALCULADORA 
+
+        // let suma = function(n1, n2) {
+        //     return n1 + n2;
+        // }
+
+        // let resta = function(n1, n2) {
+        //     return n1 - n2;
+        // }
+
+        // let calculadora = function (numero1, numero2, callback) {
+        //     return callback(numero1, numero2);
+        // }
+
+        // console.log(calculadora(2,3,resta));
+
+        let suma = (n1,n2) => n1 + n2;
+        let rest = (n1,n2) => n1 - n2;
+        let mult = (n1,n2) => n1 * n2; 
+        let div  = (n1,n2) => n1 / n2;
+
+        let calculadora = function(n1,n2, callback) {
+            return callback(n1, n2);
+        }
+
+        console.log(calculadora(72,21,div));
+
+        // console.log(suma(1,2));
+        // console.log(rest(1,2));
+        // console.log(mult(2,2));
+        // console.log(div(4,2));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var products = [];
+        var shoppingBag = [];
+
+        class Product {
+
+            constructor(brand, name, description, price, image) {
+                this.brand = brand;
+                this.name = name;
+                this.description = description;
+                this.price = price;
+                this.image = image;
+                this.seller = seller;
+
+                products.push(this);
+            }
+
+            setPrice(price) {
+                this.price = price;    
+            }
+
+            setDescription(description) {
+                this.description;
+            }
+        }
+
+        function buy(productName) {
+            for(let i=0; i<products.length; i++){
+                if(productName == products[i].name) {
+                    products.splice(i,1);
+                }
+            }
+        }
+
+        
+        function addProduct() {
+            // ingress brand, name, price, image, description, seller
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19/06</title>
+</head>
+<body>
+    <!-- EJERCICIO 4 -->
+    <!-- <script>
+
+        var sum = 0;
+        var index = 0;
+        var is_exit = false;
+        
+        do {
+            var input = prompt("Ingrese un número");
+            console.log("Ingresé: " + input);
+            
+
+            if(input === "salir") {
+                is_exit = true;
+            }
+            else {
+                input = parseInt(input);
+                console.log("El input parseado es: " + input);
+                
+                //if (input < 10 && input >= 0)  {
+                    sum += input; //sum = sum + input
+                    index ++; // index = index + 1
+                //}
+            }
+
+        }while(!is_exit)
+
+        console.log("Suma: " + sum);
+        console.log("Cantidad: " + index);
+        
+        alert(sum/index);
+
+    </script> -->
+    <script>
+
+        // var is_exit = false;
+        
+        var me_quedo_adentro = true;
+
+
+        var par = 0;
+        var impar = 0;
+        
+        do {
+            var num = prompt("Ingrese un número: ");
+            num = parseInt(num);
+
+            if(num === 0) {
+                // is_exit = true;
+                me_quedo_adentro = false;
+            }
+            else {
+                if (num % 2 === 0) {
+                    par = par + 1;
+                    console.log(num);
+                } 
+                else {
+                    impar = impar + 1;
+                }
+            }
+
+        }while(me_quedo_adentro == true)
+
+        console.log("Pares/impares: " + par + "/" + impar);
+
+        if (par > impar) {
+            console.log("Hay más pares que impares");
+        }
+        else {
+            console.log("Hay más impares que pares");
+        }
+
+    </script>
+</body>
+</html>

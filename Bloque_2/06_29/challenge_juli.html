@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="name">Nombre: </label>
+        <input type="text" name="name1" id="name1">
+        <input type="submit" id="btn" onclick="getInputValue()" value="Submit">
+    </form>
+
+    <script>
+        function getInputValue() {
+            var name = document.getElementById("name1").value;
+            // alert(name); //hasta acá tengo lo ingresado en el input en la variable name
+
+            return name;
+        }
+        let node = document.getElementById("btn");
+        // node.addEventListener("click", msj => alert(name)) // acá name pasa a estar vacio
+        node.addEventListener("click", msj => alert("Hola, " + getInputValue())) // por tanto acá no muestra la parte de name
+    </script>
+</body>
+
+</html>

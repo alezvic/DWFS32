@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // let users = ["Pepe", "Juan", "Fiora", "Mafalda", "Salvador", "Gaviota"];
+
+        // (function addUser() {
+        //     let newUsername = prompt("Ingrese un nombre de usuario: ");
+
+        //     try {
+        //         if (!newUsername) {
+        //             throw new Error("Información incompleta, no se ingresó un username.");
+        //         }
+        //         for(let i=0; i<users.length; i++) {
+        //             if(newUsername == users[i]){
+        //                 throw new Error("Usuario ya existe");
+        //             }
+        //         }
+
+        //         users.push(newUsername);
+        //         alert("Bienvenido " + newUsername + "!!");
+        //         console.log(users);
+
+        //     } catch (error) {
+        //         alert(error);
+        //     }
+        // })()
+
+
+        var arrayUsers = [];
+
+        class Usuario {
+            constructor(nombre, apellido, correo, nombreUsuario, contrasena, activo) {
+                this.name = nombre;
+                this.lastName = apellido;
+                this.email = correo;
+                this.userName = nombreUsuario;
+                this.password = contrasena;
+                this.active = activo;
+            }
+        }
+
+        do {
+            (function addUser() {
+                let newUser = new Usuario(
+                    prompt("Ingrese nombre: "),
+                    prompt("Ingrese apellido: "),
+                    prompt("Ingrese email: "),
+                    prompt("Ingrese nombre de usuario: "),
+                    prompt("Ingrese contraseña: "),
+                    window.confirm("Está usted activo?")
+                );
+
+                try {
+                    if (!newUser.name || !newUser.lastName || !newUser.email || !newUser.userName || !newUser.password || !newUser.active) {
+                        throw new Error("Información incompleta");
+                    }
+                    for (let i = 0; i < arrayUsers.length; i++) {
+                        if (newUser.userName == arrayUsers[i].userName) {
+                            throw new Error("Nombre de usuario ya existe");
+                        }
+                        else if (newUser.email == arrayUsers[i].email){
+                            throw new Error("Email ya está en uso");
+                        }
+                    }
+
+                    arrayUsers.push(newUser);
+                    alert("Bienvenido " + newUser.name + "!!");
+                    console.log(arrayUsers);
+
+                } catch (error) {
+                    alert(error);
+                }
+            })()
+        }while(window.confirm("Quiere seguir cargando?"))
+
+
+
+    </script>
+</body>
+
+</html>

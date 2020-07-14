@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div id="box"></div>
+
+    <script>
+
+        let box = document.getElementById('box');
+        let name = prompt('Ingrese nombre y apellito');
+        let bg_color = prompt('Ingrese color  de fondo');
+        let color = prompt('INgrese color para las letras');
+
+        let p = document.createElement('p');
+        p.textContent = "Hola, soy " + name;
+
+        box.appendChild(p);
+        p.style.color = color;
+        box.style.backgroundColor = bg_color;
+
+    </script>
+
+
+</body>
+</html>

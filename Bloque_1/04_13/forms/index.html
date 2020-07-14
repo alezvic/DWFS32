@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        div {margin: 16px 8px 16px 8px;}
+    </style>
+</head>
+<body>
+    <h1>Formulario de inscripción</h1>
+    <div id="form">
+        <form action="signup">
+            <div id="personal_data">
+                <div>
+                    <label for="name">Nombre </label><input id="name" name="name" type="text" required>
+                    <label for="lastname">Apellido </label><input id="lastname" name="lastname" type="text" required>
+                </div>
+                <div>
+                    <label for="email">Email </label><input id="email" name="email" type="email" required>
+                    <label for="select_country">Seleccioná tu país </label>
+                    <select name="country" id="select_country" required>
+                        <option value="">País...</option>
+                        <option value="ar">Argentina</option>
+                        <option value="br">Brasil</option>
+                        <option value="uy">Uruguay</option>
+                        <option value="pe">Perú</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="">¿A qué carrera querés inscribirte?</label>
+                    <input required type="checkbox" id="ux" name="ux"><label for="ux">Diseño UX/UI</label>
+                    <input required type="checkbox" id="front" name="front"><label for="front">Desarrollo Front-end avanzado</label>
+                    <input required type="checkbox" id="full" name="full"><label for="full">Desarrollo Fullstack</label>
+                    <input required type="checkbox" id="data" name="data"><label for="data">Data science</label>
+                </div>
+                <div>
+                    <p>Seleccioná una modalidad</p>
+                    <input type="radio" id="onsite" name="mode"><label for="onsite">Presencial</label>
+                    <input type="radio" id="online" name="mode"><label for="online">A Distancia</label>
+                </div>
+                <div>
+                    <p>¿Estás trabajando actualmente?</p>
+                    <input type="radio" id="yes" name="working"><label for="onsite">Si</label>
+                    <input type="radio" id="no" name="working"><label for="online">No</label>
+                </div>
+                <div>
+                    <label for="phone">Teléfono de contacto </label><input type="number" name="phone" id="phone">
+                    <p>Agregá una descripción tuya</p>
+                    <textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div>
+                <input type="submit" name="" id="">
+                <input type="reset">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

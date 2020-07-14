@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img src="https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg" alt="">
+            <ul>
+                <li>MI CUENTA</li>
+                <li>PRODUCTOS</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <img src="https://cdn.shopify.com/s/files/1/1103/5152/products/Leffe_Blonde_1000x2048_ca3de488-4a09-4f21-9bc2-0215c37318ac_1024x1024.jpg?v=1553091089"
+                alt="">
+            <h1>Cerveza Leffe Blond</h1>
+            <h2>Precio: $99</h2>
+            <h3>Haciendo de lo extraordinaio algo simplemente perfecto, Leffe es una cerveza cuyo historial se remonta
+                al año 1240. De sabor seco, frutal y ligeramente especiado, esta Belgian Abbey Ale ofrece un perfecto
+                balance de fuerza y sutileza. El amargor es delicado, dejando una agradable sensación después de
+                probarla. Especiada con clavo de olor, crea un sabor exótico y condimentado. Ganadora del World Beer
+                Awards, categoría Gold.</h3>
+            <button id="boton1">Agregar</button>
+        </div>
+        <div>
+            <img src="https://cdn.shopify.com/s/files/1/1103/5152/products/Franziskaner_Hell_1000x2048_7a440573-de78-42a7-b2f2-85c71e097912_1024x1024.jpg?v=1553090268"
+                alt="">
+            <h1>Cerveza Franziskaner Weissbier Hell</h1>
+            <h2>Precio: $139</h2>
+            <h3>Franziskaner Weissbier Hell es una cerveza tipo Hefeweissbier blanca de Baviera con espuma blanca
+                exuberante. De aroma frutal, se destaca por su sabor a banana y cítricos. Fresca y sutilmente especiada,
+                se caracteriza por su sabor dulce al final de cada trago.</h3>
+            <button id="boton2">Agregar</button>
+        </div>
+        <div>
+            <img src="https://cdn.shopify.com/s/files/1/1103/5152/products/CervezaDosDingosSunsetAmberAle355ml_1024x1024.png?v=1590080930"
+                alt="">
+            <h1>Cerveza Dos Dingos Sunset Amber Ale</h1>
+            <h2>Precio: $140</h2>
+            <h3>La Sunset es es una Australian Amber Ale con una alta complejidad de maltas y color rojo cobrizo con
+                sabor a especias, tostado y caramelo.</h3>
+            <button id="boton3">Agregar</button>
+        </div>
+        <div>
+            <img src="https://cdn.shopify.com/s/files/1/1103/5152/products/corona_1000x2048_4350db40-590e-473f-afa9-5f8bc77f20d5_1024x1024.png?v=1571920351"
+                alt="">
+            <h1>Cerveza Corona</h1>
+            <h2>Precio: $85</h2>
+            <h3>Corona es una cerveza premium, clásica y auténtica, reconocida mundialmente por su alta calidad, su
+                sabor distintivo e imagen. Es una cerveza que transmite tranquilidad y relajación, invitando a los
+                consumidores a desconectarse de la monotonía diaria a través de experiencias agradables.</h3>
+            <button id="boton4">Agregar</button>
+        </div>
+        <button id="irACarrito">Ir al carrito</button>
+    </main>
+
+
+
+    <script>
+
+        // class Producto {
+            // constructor (precio, nombre, descripcion){
+            //     this.precio;
+            //     this.nombre;
+            //     this.descripcion;
+            // }
+        // }
+
+        producto1 = {
+            precio: 99,
+            nombre: 'Cerveza Leffe Blond'
+        }
+
+        producto2 = {
+            precio: 139,
+            nombre: 'Cerveza Franziskaner Weissbier Hell',
+        }
+
+        producto3 = {
+            precio: 140,
+            nombre: 'Cerveza Dos Dingos Sunset Amber Ale',
+        }
+
+        producto4 = {
+            precio: 85,
+            nombre: 'Cerveza Corona',
+        }
+
+        var productos = [producto1, producto2, producto3, producto4];
+        var carrito = [];
+
+        var boton1 = document.getElementById('boton1');
+        var boton2 = document.getElementById('boton2');
+        var boton3 = document.getElementById('boton3');
+        var boton4 = document.getElementById('boton4');
+        
+        var botonCarrito = document.getElementById('irACarrito');
+
+        function capturar(producto) {
+            console.log("agrega");
+            
+            carrito.push(producto);
+        }
+
+        function guardarLocalStorage() {
+            console.log(carrito);
+            localStorage.setItem('carrito',JSON.stringify(carrito));
+        }
+
+        boton1.addEventListener('click', ()=> capturar(producto1));
+        boton2.addEventListener('click', ()=> capturar(producto2));
+        boton3.addEventListener('click', ()=> capturar(producto3));
+        boton4.addEventListener('click', ()=> capturar(producto4));
+
+        botonCarrito.addEventListener('click', ()=>guardarLocalStorage());
+
+    </script>
+</body>
+
+</html>

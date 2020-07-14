@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+          </tr>
+        </thead>
+        <tbody id="tablaBody">
+        </tbody>
+      </table>
+      <h2 id="precio">Precio: $</h2>
+</body>
+
+<script>
+
+    var tBody = document.getElementById('tablaBody');
+    var precio = document.getElementById('precio');
+
+    var productos = JSON.parse(localStorage.getItem('carrito'));
+
+    var sumaPrecios = 0;
+
+    for(let i=0; i<productos.length; i++) {
+        tr = document.createElement('tr');
+        tdNombre = document.createElement('td');
+        tdPrecio = document.createElement('td');
+
+        tdNombre.textContent = productos[i].nombre;
+        tdPrecio.textContent = productos[i].precio;
+
+        tr.appendChild(tdNombre);
+        tr.appendChild(tdPrecio);
+
+        tBody.appendChild(tr);
+
+        sumaPrecios += productos[i].precio;
+    }
+
+    precio.textContent += sumaPrecios;
+
+    console.log(sumaPrecios);
+    
+    
+</script>
+</html>

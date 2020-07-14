@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 06_17</title>
+</head>
+<body>
+    <script>
+        
+        var num1 = prompt("Ingresá valor 1");
+        var num2 = prompt("Ingresá valor 2");
+
+        console.log(typeof(num1));
+        console.log(typeof(num2));
+        
+
+        // if (typeof(num1) != "number" || (typeof(num2) != "number")) {
+        //     alert ("Deben ser números!");
+        // }
+
+        var numParseado1 = parseInt(num1);
+        var numParseado2 = parseInt(num2);
+
+        console.log(numParseado2 + numParseado1);
+
+        // if (numParseado1 + numParseado2 == "NaN") {
+        //     alert("Alguno de los valores no es un número.");
+        // }
+
+        if ((numParseado1 + numParseado2) > 50) {
+            alert("Es mucho!");
+        }
+        else {
+            if ((numParseado1 + numParseado2) == 50) {
+                alert("Está justo!");
+            }
+            else {
+                alert("Es poco!");
+            }
+        }
+
+    </script>
+</body>
+</html>

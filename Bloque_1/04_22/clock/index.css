@@ -1,0 +1,31 @@
+.background{
+    position: relative;
+    background-image: url(https://cssanimation.rocks/images/posts/clocks/ios_clock.svg);
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 500px;
+  } 
+
+.background::after{
+    position: absolute;
+    left:50%;
+    top:50%;
+    background-color: black;
+    transform: translate(-50%, -50%);
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
+    content: "";
+}
+
+.seconds {
+    height: 5px;
+    width: 230px;
+    background-color: red;
+    position: absolute;
+    animation: rotate(360deg);
+}
+
+.seconds:hover {
+    transform: rotateY(6deg);
+}       

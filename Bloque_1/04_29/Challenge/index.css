@@ -1,0 +1,19 @@
+div  {
+    width: 300px;
+    height: 400px;
+    background-color: lightsalmon;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 800px) {
+    div {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    div {
+        display: inline-block;
+    }
+}

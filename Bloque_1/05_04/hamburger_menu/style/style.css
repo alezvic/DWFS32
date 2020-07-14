@@ -1,0 +1,61 @@
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+ul {
+    list-style: none;
+    position: relative;
+    display: none;
+}
+
+span {
+    display: block;
+}
+
+/* img {
+    position: absolute;
+    float: left;
+} */
+
+
+
+input[type='checkbox']:checked ~ ul {
+    display: block;
+}
+
+@media screen and (max-width: 800px) {
+
+    li {
+        height: 48px;
+        background-color: lightgrey;
+        border: 1px solid black;
+        text-align: center;
+    }
+
+    ul {
+        padding: 0;
+    }
+}
+
+
+@media screen and (min-width: 800px) {
+    ul {
+        float: right;
+        position: absolute;
+        right: 0;
+        top:0;
+    }
+    li {
+        display: inline;
+    }
+    img {
+        float: left;
+        display: inline;
+        position: relative;
+    }
+
+    #checkbox {
+        display: none;
+    }
+}

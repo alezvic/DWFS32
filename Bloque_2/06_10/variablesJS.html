@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var num1 = prompt("Ingrese número 1");
+        // var num2 = prompt("Ingrese número 2");
+
+        // num1 = parseInt(num1);
+        // num2 = parseInt(num2);
+
+        // if (!isNaN(num1) && !isNaN(num2)) {
+        //     console.log("El resultado es: " + parseInt(num1 + num2))
+        // }
+        // else {
+        //     alert("Deben ser números");
+        // }
+
+        // TANQUES
+
+        // const autonomy = 15; //litres
+        // const tank = 45; //kms
+
+        // var distance = prompt("Distancia a recorrer:" );
+
+        // if (isNaN(distance)) {
+        //     prompt("Distancia debe ser un número!! Recague y vuelva a intentar.");
+        // }
+        // else {
+        //     var tanks = distance / (15*45);
+
+        //     if (tanks < 1) {
+        //         alert("Vas a llegar re-bien");
+        //     }
+        //     else {
+        //         alert("Vas a necesitar " + (parseInt(tanks) + 1) + " tanques");
+        //     }
+        // }
+
+        // RADIO
+
+        var dial = parseFloat(prompt("Ingrese dial:" ));
+
+        if (!isNaN(dial)) {
+            if (dial >= 89.9 && dial <= 107.7) {
+                alert ("Su frecuencia es de una radio válida.");
+            }
+            else {
+                alert("Su frecuencia no es de una radio válida");
+            }
+        }
+        else {
+            alert("Debe ser un número!")
+        }
+
+    </script>
+</body>
+</html>
