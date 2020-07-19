@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Stats</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        a {
+            display: none;
+        }
+        span {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>GitHub Stats</h1>
+    <div id="search_container">
+        <input type="text" id="userInput">
+        <button id="search">Buscar</button>
+    </div>
+    <div id="user_container">
+        <img src="" alt="" id="user_img">
+        <h2 id="user_name"></h2>
+        <h3 id="user_realname"></h3>
+        <p id="user_paragraph"></p>
+        <a href="" target="_blank">Ir a GitHub</a>
+    </div>
+
+    <script>
+
+        let url_api = 'https://api.github.com/users/';
+
+        let input = document.getElementById('userInput');
+        let btn = document.getElementById('search');
+        let dataContainer = document.getElementById('user_container');
+        let userImage = document.getElementById('user_img');
+        let userName = document.getElementById('user_name');
+        let userRealName = document.getElementById('user_realname');
+        let userParagraph = document.getElementById('user_paragraph');
+        let link = document.getElementsByTagName('a')[0];
+
+
+        btn.addEventListener('click', ()=> {
+            getUser(input.value);
+        });
+
+        function getUser(userName) {
+            fetch(url_api + userName)
+            .then(response => response.json())
+            .then(json => {
+                console.log(json);
+                replaceUserImage(json.avatar_url);
+                
+                addUserInfo(json.login, json.name, json.bio, json.location, json.email, json.followers, json.following, json.public_repos, json.html_url);
+            })
+            .catch(()=>{
+                console.log("Error");
+            });
+        }
+
+        function replaceUserImage(image_url) {
+            userImage.style.margin = '16px';
+            userImage.setAttribute('width','300px');
+            userImage.setAttribute('src',image_url);
+        }
+
+        function addUserInfo(userName, name, bio, location, email, followers, following, repos, githubURL) {
+
+            let paragraphText = '';
+
+            if (userName != null) {userName.innerText = userName};
+            if (name != null) {userRealName.innerText = name};
+            if (bio != null) {
+                paragraphText += '<span>' + bio + '</span>' + '<br><br>';
+            }
+            paragraphText += 'Followers: ' + followers + '<br>';
+            paragraphText += 'Following: ' + following + '<br>';
+            paragraphText += 'Repos públicos: ' + repos + '<br>';
+            if (location != null) {
+                paragraphText += location + '<br>';
+            }
+            if (email != null) {
+                paragraphText += email;
+            }
+
+            userParagraph.innerHTML = paragraphText;
+
+            link.setAttribute('href', githubURL);
+            link.style.display = 'block';
+        }
+
+        // function getFollowers(url) {
+        //     fetch(url)
+        //     .then(response => response.json())
+        //     .then(json => {
+        //         console.log(json);
+        //     });
+        // }
+
+        // getUser('andrew');
+
+    </script>
+
+</body>
+</html>

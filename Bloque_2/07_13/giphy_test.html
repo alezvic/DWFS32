@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy Test</title>
+    <style>
+        body, div {
+            text-align: center;
+            margin: 16px;
+        }
+        img {
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Giphy Search</h1>
+    <input type="text" id="search">
+    <button>Buscar</button>
+    <div>
+        <img src="" alt="">
+        <img src="" alt="">
+        <img src="" alt="">
+        <img src="" alt="">
+        <img src="" alt="">
+    </div>
+
+    <script>
+
+        let url = "http://api.giphy.com/v1/gifs/search?q=";
+        let limit = '&limit=5&api_key=';
+        let key = '8amQWVyd3uqrc3mDDs3Iiqlg7P7vxfPi';
+
+        let imgs = document.getElementsByTagName('img');
+        let input = document.getElementsByTagName('input')[0];
+        let button = document.getElementsByTagName('button')[0];
+
+        button.addEventListener('click', () => getGif(input.value));
+
+
+        function getGif(searchValue) {
+            fetch(url + searchValue + limit + key)
+                .then(response => response.json())
+                .then(json => {
+                    console.log(json);
+                    console.log(json.data[0].images.downsized_large.url);
+
+                    replaceImgs(json);
+                    // img.setAttribute('src',json.data[0].images.downsized_large.url);
+                })
+                .catch(() => {
+                    console.log('Error');
+                });
+        }
+
+        function replaceImgs(json) {
+            for (let i = 0; i < json.data.length; i++) {
+                imgs[i].setAttribute('src', json.data[i].images.downsized_large.url)
+            }
+        }
+
+        // getGif();
+
+
+
+    </script>
+</body>
+
+</html>

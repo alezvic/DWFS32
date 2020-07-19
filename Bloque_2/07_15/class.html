@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 15/07</title>
+
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        #pokeCtn {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        #pokeCtn div {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            background-color: #fff;
+            border: 5px solid #000;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        #pokeCtn div img {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id='pokeCtn'>
+
+    </div>
+
+    <script>
+
+        let url = 'https://pokeapi.co/api/v2/pokemon/';
+        let div = document.getElementById('pokeCtn');
+
+        // ->>>>> Ejercicio 1: traer varios Pokémon
+
+        // let array = [123, 777, 32, 89, 76, 88, 12, 65, 654, 88];
+        // let fetch1 = fetch(url + 124)
+        //     .then(response => response.json());
+
+        // let fetch2 = fetch(url + 152)
+        //     .then(response => response.json());
+
+        // let fetch3 = fetch(url + 150)
+        //     .then(response => response.json());
+
+        // let fetch4 = fetch(url + 93)
+        //     .then(response => response.json());
+
+        // Promise.all([fetch1,fetch2,fetch3,fetch4])
+        // .then((data) => {
+        //     console.log(data);
+        //     for (let i = 0; i < data.length; i++) {
+        //         addToDOM(data[i]);
+        //     }
+        // });
+
+        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+        // ->>>>>>> Ejercicio 2: mostrar el pokémon del primer request que responda
+        // (usar Promise.race)
+
+
+        // let array = [123, 777, 32, 89, 76, 88, 12, 65, 654, 88];
+
+        // let fetch1 = fetch(url + array[Math.floor(Math.random() * 10)])
+        //     .then(response => response.json());
+
+        // let fetch2 = fetch(url + array[Math.floor(Math.random() * 10)])
+        //     .then(response => response.json());
+
+        // let fetch3 = fetch(url + array[Math.floor(Math.random() * 10)])
+        //     .then(response => response.json());
+
+        // Promise.race([fetch1, fetch2, fetch3])
+        //     .then((data) => {
+        //         addToDOM(data);
+        //     });
+
+
+        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+        // ->>>>>>> Ejercicio 3: introducir un string en el array y responder con un mensaje de error si me toca esa posicion
+        // (Promise.all -> una va a fallar y eso dispara el catch)
+
+        let array = [123, 777, 32, 89, 76, "esto es un string", 12, 65, 654, 88];
+
+        let fetch1 = fetch(url + array[Math.floor(Math.random() * 10)])
+            .then(response => response.json());
+
+        let fetch2 = fetch(url + array[Math.floor(Math.random() * 10)])
+            .then(response => response.json());
+
+        let fetch3 = fetch(url + array[Math.floor(Math.random() * 10)])
+            .then(response => response.json());
+
+        Promise.all([fetch1, fetch2, fetch3])
+            .then((data) => {
+                console.log(data);
+                for (let i = 0; i < data.length; i++) {
+                    addToDOM(data[i]);
+                }
+            })
+            .catch((err) => {alert('Te salió el string. ' + err)});
+
+
+        function addToDOM(info) {
+            let ctn = document.createElement('div');
+            let name = document.createElement('h2');
+            let img = document.createElement('img');
+
+            name.textContent = info.name;
+            img.setAttribute('src', info.sprites.front_default);
+
+            ctn.appendChild(name);
+            ctn.appendChild(img);
+
+            div.appendChild(ctn);
+        }
+
+    </script>
+
+</body>
+
+</html>
