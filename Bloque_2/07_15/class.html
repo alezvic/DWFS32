@@ -34,6 +34,13 @@
 
 <body>
 
+    <div id="inputs">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+        <button id="search_btn">Buscar</button>
+    </div>
+
     <div id='pokeCtn'>
 
     </div>
@@ -94,25 +101,70 @@
         // ->>>>>>> Ejercicio 3: introducir un string en el array y responder con un mensaje de error si me toca esa posicion
         // (Promise.all -> una va a fallar y eso dispara el catch)
 
-        let array = [123, 777, 32, 89, 76, "esto es un string", 12, 65, 654, 88];
+        // let array = [123, 777, 32, 89, 76, "esto es un string", 12, 65, 654, 88];
 
-        let fetch1 = fetch(url + array[Math.floor(Math.random() * 10)])
-            .then(response => response.json());
+        // let fetch1 = fetch(url + array[Math.floor(Math.random() * 10)])
+        //     .then(response => response.json());
 
-        let fetch2 = fetch(url + array[Math.floor(Math.random() * 10)])
-            .then(response => response.json());
+        // let fetch2 = fetch(url + array[Math.floor(Math.random() * 10)])
+        //     .then(response => response.json());
 
-        let fetch3 = fetch(url + array[Math.floor(Math.random() * 10)])
-            .then(response => response.json());
+        // let fetch3 = fetch(url + array[Math.floor(Math.random() * 10)])
+        //     .then(response => response.json());
 
-        Promise.all([fetch1, fetch2, fetch3])
-            .then((data) => {
-                console.log(data);
-                for (let i = 0; i < data.length; i++) {
-                    addToDOM(data[i]);
-                }
-            })
-            .catch((err) => {alert('Te salió el string. ' + err)});
+        // Promise.all([fetch1, fetch2, fetch3])
+        //     .then((data) => {
+        //         console.log(data);
+        //         for (let i = 0; i < data.length; i++) {
+        //             addToDOM(data[i]);
+        //         }
+        //     })
+        //     .catch((err) => {alert('Te salió el string. ' + err)});
+
+        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+        // ->>>>>>> Ejercicio 4: valida que los 3 inputs estén completos, sean números, buscar el primer ID después del segundo y el 
+        // segundo después del tercero
+        // 
+
+        let inputs = document.getElementsByTagName('input');
+        let searchBtn = document.getElementById('search_btn');
+
+        searchBtn.addEventListener('click', () => getPokemons(10, 20, 30));
+
+        let prom = new Promise
+
+
+        // function getPokemons(id1, id2, id3) {
+        //     fetch(url + id3)
+        //     .then((response) => console.log(response.json()))
+        //     .then(() => fetch(url + id2)
+        //     .then(response => response.json()))
+        //     .then(() => fetch(url + id1)
+        //     .then(response => response.json()));
+        // }
+
+        // let fetch1 = fetch(url + 10)
+        //     .then(response => response.json());
+
+        // let fetch2 = fetch(url + 20)
+        //     .then(response => response.json());
+
+        // let fetch3 = fetch(url + 30)
+        //     .then(response => response.json());
+
+        // Promise.all([fetch3, fetch2, fetch1])
+        //     .then((data) => {
+        //         console.log(data);
+        //         for (let i = 0; i < data.length; i++) {
+        //             addToDOM(data[i]);
+        //         }
+        //     });
+
+        // Promise.
+
+
+        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
         function addToDOM(info) {
