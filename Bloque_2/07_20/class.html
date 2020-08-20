@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 20/07</title>
+</head>
+
+<body>
+
+    <script>
+
+        async function getMovieByTitle(title) {
+
+            let api_key = '7fb789f2';
+            const base_url = 'https://www.omdbapi.com/?apikey=';
+            let url = base_url + api_key + '&t=' + title;
+            const resp = await fetch(url);
+            const data = await resp.json();
+
+            // console.log(data);
+            return data;
+        }
+
+        async function getIP() {
+            let url = 'https://www.cloudflare.com/cdn-cgi/trace';
+            let resp = await fetch(url);
+            let data = await resp.text();
+
+            let dataString = '';
+            dataString = data.split('\n')[2].split(2);
+            dataString = dataString[0].split('=')[1];
+
+            // console.log(dataString);
+            // console.log(typeof(dataString));
+
+            return dataString;
+        }
+
+        async function getCity(ip) {
+
+            const api_key = 'eqvt25qssu47s5';
+            const url_base = 'https://api.ipregistry.co/';
+
+            const resp = await fetch(url_base + ip + '?key=' + api_key);
+            let data = await resp.json();
+
+            // console.log((data.location.city));
+
+            return data;
+        }
+
+        async function getWeather(cityName) {
+
+            const api_key = 'd267ea9eac2214151f964923c1a21cde';
+            const base_url = 'https://api.openweathermap.org/data/2.5/weather?q='
+
+            let resp = await fetch(base_url + cityName + '&appid=' + api_key);
+            let data = await resp.json();
+
+            return data;
+        }
+
+        async function getEverything() {
+            var movie = await getMovieByTitle('citizen kane');
+            var ip = await getIP();
+
+            console.log(ip);
+
+            var geoData = await getCity(ip);
+            geoData = geoData.location.city;
+
+            var weather = await getWeather(geoData);
+            let temp = weather.main.temp;
+
+            return temp;
+        }
+
+        console.log(getEverything());
+
+
+    </script>
+</body>
+
+</html>

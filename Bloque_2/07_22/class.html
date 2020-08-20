@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 22/07</title>
+</head>
+<body>
+    
+    <script>
+
+        noticia1=document.getElementById('askldfj')
+
+        async function getApi() {
+            
+            let url = 'https://thesimpsonsquoteapi.glitch.me/quotes';
+            
+            let response = await fetch(url);
+            let quotes = await response.json();
+
+            return quotes;
+        }
+
+        async function getData(){
+            var quotes = await getApi();
+
+            for (let i = 0; i < quotes.length; i++) {
+                let element = 
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>
